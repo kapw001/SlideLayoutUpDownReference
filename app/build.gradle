@@ -1,0 +1,45 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion '22.0.1'
+
+    lintOptions {
+        abortOnError false;
+    }
+
+    defaultConfig {
+        applicationId 'kaichunlin.transition.app'
+        minSdkVersion 11
+        targetSdkVersion 21
+        versionCode 6
+        versionName "1.0.4"
+    }
+
+    //enable to build release version
+//    signingConfigs {
+//        release {
+//            keyAlias project.property('keyalias')
+//            keyPassword project.property('keypassword')
+//            storeFile file(project.property('storefile'))
+//            storePassword project.property('storepassword')
+//        }
+//    }
+//    buildTypes {
+//        release {
+//            signingConfig signingConfigs.release
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//        }
+//    }
+
+    dexOptions {
+        incremental false
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':slidinguppanel')
+    compile project(':observablescrollview')
+}
